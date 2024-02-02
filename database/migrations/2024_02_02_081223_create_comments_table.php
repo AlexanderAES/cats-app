@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('subject');
             $table->text('body');
-            $table->unsignedBigInteger('cat_id');
+            $table->foreignId('cat_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }
