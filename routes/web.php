@@ -15,9 +15,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 //Route::get('/', function () {
 //    return Inertia::render('Welcome', [
