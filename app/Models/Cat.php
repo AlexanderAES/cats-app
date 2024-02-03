@@ -50,6 +50,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static \Illuminate\Database\Eloquent\Builder|Cat whereSize($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Cat whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Cat whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cat lastLimit($numbers)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cat allCats($paginate)
  * @mixin \Eloquent
  */
 class Cat extends Model
@@ -84,6 +86,16 @@ class Cat extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function scopeLastLimit($query, $numbers)
+    {
+        return $query->where('active', true)->with('tags', 'state')->orderBy('created_at', 'desc')->limit($numbers)->get();
+    }
+
+    public function scopeAllCats($query,$paginate)
+    {
+        return $query->with('tags', 'state')->orderBy('created_at', 'desc')->paginate($paginate);
     }
 
 }

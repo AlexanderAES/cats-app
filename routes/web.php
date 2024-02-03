@@ -16,6 +16,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/gallery', [\App\Http\Controllers\CatGalleryController::class, 'index'])->name('gallery');
 
 
 //Route::get('/', function () {
