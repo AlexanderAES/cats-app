@@ -21,16 +21,24 @@ class CatFactory extends Factory
      */
     public function definition(): array
     {
-        $breed = $this->faker->sentence(6, true);
-        $slug = Str::slug($breed, '-');
+        $breeds = ['Мейн-кун', 'Бенгальская', 'Сиамская', 'Невская', 'Рэгдолл', 'Персидская', 'Шотландская', 'Сибирская', 'Ангорская', 'Нибелунг', 'Русская', 'Манчкин', 'Сноу-Шу', 'Саванна', 'Корнищ-рекс', 'Бирманская', 'Русская голубая', 'Невская маскарадная'];
+
+
+        $breedIndex = $this->faker->unique()->numberBetween(0, count($breeds) - 1);
+        $breed = $breeds[$breedIndex];
+
+        $slug = Str::slug($breed);
 
         $imageFiles = File::files(public_path('images'));
         $randomImages = collect($imageFiles)->random(5);
 
 
         $imagePaths = $randomImages->map(function ($image) {
-            return asset(str_replace(public_path(), '', $image));
+            $relativePath = str_replace(public_path(), '', $image);
+            $relativePath = str_replace('\\', '/', $relativePath);
+            return ltrim($relativePath, '/');
         })->toArray();
+
 
         return [
             'breed' => $breed,
@@ -39,8 +47,8 @@ class CatFactory extends Factory
             'img' => $imagePaths,
             'color' => $this->faker->safeColorName,
             'age' => $this->faker->numberBetween(1, 5),
-            'sex' => $this->faker->randomElement(['male', 'female']),
-            'size' => $this->faker->randomElement(['small', 'medium', 'large']),
+            'sex' => $this->faker->randomElement(['самец', 'самка']),
+            'size' => $this->faker->randomElement(['маленький', 'средний', 'большой']),
             'active' => $this->faker->boolean,
             'price' => $this->faker->numberBetween(1000, 15000),
             'sale' => $this->faker->numberBetween(10, 50),
