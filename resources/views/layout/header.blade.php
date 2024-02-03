@@ -11,8 +11,8 @@
                             <span></span>
                         </div>
                         <ul class="header__list">
-                            <li><a href="#">Главная</a></li>
-                            <li><a href="#">Галерея</a></li>
+                            <li><a href="{{ route('home') }}">Главная</a></li>
+                            <li><a href="{{ route('gallery') }}">Галерея кошек</a></li>
                         </ul>
                     </nav>
                 </div>
