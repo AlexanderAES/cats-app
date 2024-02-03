@@ -25,7 +25,7 @@
                             </div>
                             <div class="promo__price">{{$cat->price}} руб.</div>
                         </div>
-                        <button class="promo__btn">Купить</button>
+                        <button class="promo__btn">Оставить заявку</button>
                     </div>
                 @endforeach
                 <div class="promo__card">

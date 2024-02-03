@@ -645,3 +645,42 @@ body {
     width: 69px;
 }
 }
+/*navigation*/
+
+.navigation {
+    margin-top: 50px;
+}
+
+.navigation svg {
+    width: 20px;
+    height: auto;
+}
+
+.navigation .flex-1 {
+    display: none;
+}
+
+.navigation a {
+    color: #000000;
+}
+
+.navigation span[aria-current="page"] {
+    color: #238484;
+    background-color: #80bdff;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.navigation > nav > div.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between div:first-child {
+    display: none;
+}
+
+.navigation > nav > div.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between div:last-child .relative {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navigation > nav > div.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between a.active\:bg-gray-100 svg {
+    fill: #80bdff;
+}
