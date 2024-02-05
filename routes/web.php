@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,6 +18,8 @@ use Inertia\Inertia;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/gallery', [\App\Http\Controllers\CatGalleryController::class, 'index'])->name('gallery');
+Route::post('/subscribe', [SubscriptionController::class,'subscribe'])->name('subscribe');
+
 
 
 //Route::get('/', function () {
