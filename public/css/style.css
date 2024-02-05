@@ -980,3 +980,64 @@ body {
     -webkit-animation: .75s linear infinite spinner-border;
     animation: .75s linear infinite spinner-border;
 }
+
+
+/*show_cat*/
+.cat__title {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: black;
+}
+
+.cat-card__image {
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.cat-card__action {
+    background-color: #e5e5e5;
+}
+
+.cat-card__text {
+    margin-bottom: 40px;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-top: 40px;
+    color: #1f2021;
+}
+
+.promo-show__inner {
+    padding: 29px 33px 29px 29px;
+    color: #000;
+    background: #e5e5e5;
+}
+
+.cat-card__btn .btn-blue {
+    background-color: #6ebbd3;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cat-card__btn .btn-blue:hover {
+    background-color: #248ba9;
+}
+
+
+
+@media screen and (min-width: 991px) {
+    .cat-card__wrapper {
+        column-gap: 50px;
+    }
+    .cat-card__text {
+        margin-top: 0;
+    }
+}

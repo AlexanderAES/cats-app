@@ -5,7 +5,7 @@
         <div class="container">
             <div class="promo__cats">
                 @foreach($cats as $cat)
-                    <div class="promo__card promo-sale">
+                    <a class="promo__card promo-sale" href="{{ route('gallery.show',$cat->slug) }}">
                         <span class="notification"></span>
                         <div class="promo__img">
                             <img src="{{ asset($cat->img[0]) }}" alt="cat">
@@ -30,7 +30,7 @@
                                 data-product-id="{{ $cat->id }}">Оставить заявку
                         </button>
                         <input type="hidden" class="cat-id" id="catId" value="{{ $cat->id }}">
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
