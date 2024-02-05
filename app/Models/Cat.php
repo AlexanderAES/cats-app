@@ -52,6 +52,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static \Illuminate\Database\Eloquent\Builder|Cat whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Cat lastLimit($numbers)
  * @method static \Illuminate\Database\Eloquent\Builder|Cat allCats($paginate)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cat bySlug($slug)
  * @mixin \Eloquent
  */
 class Cat extends Model
@@ -96,6 +97,11 @@ class Cat extends Model
     public function scopeAllCats($query,$paginate)
     {
         return $query->with('tags', 'state')->orderBy('created_at', 'desc')->paginate($paginate);
+    }
+
+    public function scopeBySlug($query, $slug)
+    {
+        return $query->where('slug', $slug);
     }
 
 }
