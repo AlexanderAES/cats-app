@@ -24,34 +24,16 @@
                                 </div>
                             </div>
                             <div class="promo__price">{{$cat->price}} руб.</div>
+
                         </div>
-                        <button class="promo__btn">Оставить заявку</button>
+                        <button class="promo__btn" data-graph-path="order" data-form="popupFormOrder" id="buyBtn"
+                                data-product-id="{{ $cat->id }}">Оставить заявку
+                        </button>
+                        <input type="hidden" class="cat-id" id="catId" value="{{ $cat->id }}">
                     </div>
                 @endforeach
-                <div class="promo__card">
-                    <span class="notification"></span>
-                    <div class="promo__img">
-                        <span class="notification"></span>
-                        <img src="{{asset('images/cat_6.jpg')}}" alt="cat">
-                    </div>
-                    <div class="promo__inner">
-                        <h2 class="promo__name">Сибирская</h2>
-                        <div class="promo__box">
-                            <div class="promo__color">Коричневый окрас</div>
-                            <div class="promo__age">
-                                <div class="promo__age-month">2мес.</div>
-                                <div class="promo__age-text">Возраст</div>
-                            </div>
-                            <div class="promo__count">
-                                <div class="promo__count-num">самка</div>
-                                <div class="promo__count-text">Пол</div>
-                            </div>
-                        </div>
-                        <div class="promo__price">10 000 руб.</div>
-                    </div>
-                    <button class="promo__btn" disabled>Продан</button>
-                </div>
             </div>
         </div>
     </article>
+
 @endsection
