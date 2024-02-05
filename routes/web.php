@@ -17,8 +17,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/gallery', [\App\Http\Controllers\CatGalleryController::class, 'index'])->name('gallery');
-Route::post('/subscribe', [SubscriptionController::class,'subscribe'])->name('subscribe');
+Route::get('/gallery', [\App\Http\Controllers\CatController::class, 'index'])->name('gallery');
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+Route::get('/cats/{item:slug}', [\App\Http\Controllers\CatController::class, 'showBySlug'])->name('gallery.show');
 
 
 
